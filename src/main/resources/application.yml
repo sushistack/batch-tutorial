@@ -1,0 +1,8 @@
+spring:
+  batch.job.enabled: false # 배치 기본 작업 비활성
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL;
+    schema: classpath:/org/springframework/batch/core/schema-h2.sql
+
+logging.level.com.deeplify.tutorial.batch: debug
