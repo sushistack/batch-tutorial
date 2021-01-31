@@ -23,11 +23,8 @@ public class TutorialScheduler {
             jobLauncher.run(
                     job,
                     new JobParametersBuilder()
-                            .addString(
-                                    "datetime",
-                                    LocalDateTime.now().toString()
-                            )
-                            .toJobParameters()
+                            .addString("datetime", LocalDateTime.now().toString())
+                    .toJobParameters()
             );
         } catch (JobExecutionException ex) {
             System.out.println(ex.getMessage());

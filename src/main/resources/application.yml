@@ -1,5 +1,5 @@
 spring:
-  batch.job.enabled: false # 배치 기본 작업 비활성
+  batch.job.enabled: false # 어플리케이션 시동 시, Job 시작 해제
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL;

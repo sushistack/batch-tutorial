@@ -3,6 +3,7 @@ package com.deeplify.tutorial.batch.jobs;
 import com.deeplify.tutorial.batch.tasklets.TutorialTasklet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -21,15 +22,14 @@ public class TutorialConfig {
     @Bean
     public Job tutorialJob() {
         return jobBuilderFactory.get("tutorialJob")
-                .start(tutorialStep(null))
+                .start(tutorialStep())
                 .build();
     }
 
     @Bean
-    @JobScope
-    public TaskletStep tutorialStep(@Value("#{jobParameters[datetime]}") String datetime) {
+    public Step tutorialStep() {
         return stepBuilderFactory.get("tutorialStep")
-                .tasklet(new TutorialTasklet(datetime))
+                .tasklet(new TutorialTasklet())
                 .build();
     }
 }
