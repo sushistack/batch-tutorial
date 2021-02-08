@@ -10,14 +10,14 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class TutorialScheduler {
 
     private final Job job;
     private final JobLauncher jobLauncher;
 
-    @Scheduled(fixedDelay = 5 * 1000L)
+    // @Scheduled(fixedDelay = 5 * 1000L)
     public void executeJob () {
         try {
             jobLauncher.run(
